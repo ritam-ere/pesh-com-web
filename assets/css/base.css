@@ -425,3 +425,160 @@ button {
         --intro-duration: 0.01s;
     }
 }
+
+@media (max-width: 767px) {
+    .mnav[hidden] {
+        display: none;
+    }
+
+    .mnav {
+        position: fixed;
+        inset: 0;
+        z-index: 60;
+    }
+
+    .mnav__catch {
+        position: absolute;
+        inset: 0;
+        padding: 0;
+        border: none;
+        background: transparent;
+        cursor: default;
+    }
+
+    .mnav__panel {
+        position: absolute;
+        top: 47px;
+        left: 17px;
+        right: 17px;
+        z-index: 1;
+    }
+
+    .mnav__head {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 58px;
+        padding: 0 13px;
+        background: #f0f0f0;
+        border: 1.2px solid var(--color-ink);
+        font-family: "Activist", sans-serif;
+        font-size: 16px;
+        text-transform: uppercase;
+    }
+
+    .mnav__est {
+        font-family: "ABC Whyte", sans-serif;
+        font-weight: 200;
+        font-size: 18px;
+        letter-spacing: -0.06em;
+        text-transform: none;
+    }
+
+    .mnav__close {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        border: 1.2px dashed var(--color-ink);
+        background: #f0f0f0;
+        cursor: pointer;
+    }
+
+    .mnav__close::before,
+    .mnav__close::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 16px;
+        height: 1.4px;
+        background: var(--color-ink);
+    }
+
+    .mnav__close::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .mnav__close::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .mnav__list {
+        list-style: none;
+    }
+
+    .mnav__link {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 38px;
+        padding: 0 13px;
+        background: #f0f0f0;
+        border: 1.2px dashed var(--color-ink);
+        border-top: none;
+        color: var(--color-ink);
+        text-decoration: none;
+    }
+
+    .mnav__idx {
+        font-family: "ABC Whyte", sans-serif;
+        font-weight: 300;
+        font-size: 14px;
+    }
+
+    .mnav__name {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: "Activist", sans-serif;
+        font-size: 16px;
+        text-transform: uppercase;
+    }
+
+    .mnav__roll {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 38px;
+        background: var(--color-accent);
+        border: 1.2px dashed var(--color-ink);
+        border-top: none;
+        font-family: "Activist", sans-serif;
+        font-size: 16px;
+        text-transform: uppercase;
+        color: var(--color-ink);
+        cursor: pointer;
+    }
+
+    .mnav__throw[hidden] {
+        display: none;
+    }
+
+    .mnav__throw {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        display: grid;
+        place-items: center;
+        background: rgba(34, 223, 244, 0.22);
+        -webkit-backdrop-filter: blur(3px);
+        backdrop-filter: blur(3px);
+    }
+
+    .mnav__dice {
+        transform: scale(2.4);
+        animation: mnav-toss 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    }
+
+    @keyframes mnav-toss {
+        0% { transform: translateY(-55vh) scale(0.4); opacity: 0; }
+        55% { opacity: 1; }
+        100% { transform: translateY(0) scale(2.4); opacity: 1; }
+    }
+}
