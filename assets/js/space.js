@@ -8,7 +8,7 @@
         var h = window.innerHeight;
         root.style.setProperty("--scale", String(w / 1280));
         root.style.setProperty("--sp-scale", String(Math.min(w / 1280, h / 832)));
-        root.style.setProperty("--spm-scale", String(w / 390));
+        root.style.setProperty("--spm-scale", String(Math.min(w / 390, h / 844)));
     }
 
     update();

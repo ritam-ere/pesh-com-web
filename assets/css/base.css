@@ -426,43 +426,52 @@ button {
     }
 }
 
+.mnav {
+    display: none;
+}
+
 @media (max-width: 767px) {
-    .mnav[hidden] {
-        display: none;
+    .space-m__bureau,
+    .space-m__est,
+    .space-m__nav,
+    .err-m__bureau,
+    .err-m__est,
+    .err-m__nav,
+    .m-dice,
+    .mobile-bar {
+        display: none !important;
     }
 
     .mnav {
+        display: block;
         position: fixed;
         inset: 0;
         z-index: 60;
+        pointer-events: none;
     }
 
-    .mnav__catch {
+    .mnav__bar {
         position: absolute;
-        inset: 0;
-        padding: 0;
-        border: none;
-        background: transparent;
-        cursor: default;
-    }
-
-    .mnav__panel {
-        position: absolute;
-        top: 47px;
+        top: 12px;
         left: 17px;
         right: 17px;
-        z-index: 1;
-    }
-
-    .mnav__head {
-        position: relative;
+        height: 46px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: 58px;
-        padding: 0 13px;
+        padding: 0 14px;
+        pointer-events: auto;
+        border: 1.2px solid transparent;
+        background: transparent;
+        transition: background 0.32s var(--ease-nav), border-color 0.32s var(--ease-nav);
+    }
+
+    .mnav.is-open .mnav__bar {
         background: #f0f0f0;
-        border: 1.2px solid var(--color-ink);
+        border-color: var(--color-ink);
+    }
+
+    .mnav__bureau {
         font-family: "Activist", sans-serif;
         font-size: 16px;
         text-transform: uppercase;
@@ -473,43 +482,81 @@ button {
         font-weight: 200;
         font-size: 18px;
         letter-spacing: -0.06em;
-        text-transform: none;
     }
 
-    .mnav__close {
+    .mnav--icononly .mnav__bureau,
+    .mnav--icononly .mnav__est {
+        visibility: hidden;
+    }
+
+    .mnav__btn {
         position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
         width: 46px;
         height: 46px;
+        display: grid;
+        place-items: center;
         border-radius: 50%;
         border: 1.2px dashed var(--color-ink);
         background: #f0f0f0;
         cursor: pointer;
     }
 
-    .mnav__close::before,
-    .mnav__close::after {
-        content: "";
+    .mnav__lines {
+        position: relative;
+        width: 22px;
+        height: 16px;
+    }
+
+    .mnav__lines span {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 16px;
-        height: 1.4px;
+        left: 0;
+        width: 22px;
+        height: 1.6px;
         background: var(--color-ink);
+        transition: transform 0.34s var(--ease-nav), opacity 0.18s ease;
     }
 
-    .mnav__close::before {
-        transform: translate(-50%, -50%) rotate(45deg);
+    .mnav__lines span:nth-child(1) { top: 0; }
+    .mnav__lines span:nth-child(2) { top: 7.2px; }
+    .mnav__lines span:nth-child(3) { top: 14.4px; }
+
+    .mnav.is-open .mnav__lines span:nth-child(1) { transform: translateY(7.2px) rotate(45deg); }
+    .mnav.is-open .mnav__lines span:nth-child(2) { opacity: 0; }
+    .mnav.is-open .mnav__lines span:nth-child(3) { transform: translateY(-7.2px) rotate(-45deg); }
+
+    .mnav__catch {
+        position: absolute;
+        inset: 0;
+        padding: 0;
+        border: none;
+        background: transparent;
+        pointer-events: none;
     }
 
-    .mnav__close::after {
-        transform: translate(-50%, -50%) rotate(-45deg);
+    .mnav.is-open .mnav__catch {
+        pointer-events: auto;
     }
 
-    .mnav__list {
-        list-style: none;
+    .mnav__panel {
+        position: absolute;
+        top: 58px;
+        left: 17px;
+        right: 17px;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition: max-height 0.4s var(--ease-nav), opacity 0.3s ease;
+    }
+
+    .mnav.is-open .mnav__panel {
+        max-height: 380px;
+        opacity: 1;
+        pointer-events: auto;
+        transition-delay: 0.06s;
     }
 
     .mnav__link {
@@ -569,6 +616,7 @@ button {
         background: rgba(34, 223, 244, 0.22);
         -webkit-backdrop-filter: blur(3px);
         backdrop-filter: blur(3px);
+        pointer-events: auto;
     }
 
     .mnav__dice {

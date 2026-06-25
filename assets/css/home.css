@@ -181,3 +181,110 @@
     35% { transform: translateY(-4px) rotate(-2.5deg); }
     70% { transform: translateY(0) rotate(1.5deg); }
 }
+
+.bureau-m {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .hero,
+    .panels,
+    .hero__end,
+    .top-bar {
+        display: none !important;
+    }
+
+    .bureau-m {
+        display: block;
+        position: fixed;
+        inset: 0;
+        overflow: hidden;
+        background: #ffffff;
+    }
+
+    .bureau-m__stage {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 390px;
+        height: 844px;
+        transform: translate(-50%, -50%) scale(var(--bm-scale, 1));
+        transform-origin: center center;
+    }
+
+    .bureau-m__title {
+        position: absolute;
+        left: 14px;
+        top: 420px;
+        margin: 0;
+        font-family: "Activist", sans-serif;
+        font-weight: 400;
+        font-size: 92px;
+        line-height: 1;
+        letter-spacing: -0.08em;
+        text-transform: uppercase;
+        color: var(--color-ink);
+    }
+
+    .bureau-m__lead {
+        position: absolute;
+        left: 18px;
+        top: 530px;
+        width: 312px;
+        margin: 0;
+        text-align: right;
+        font-size: 36px;
+        line-height: 1;
+        white-space: nowrap;
+    }
+
+    .bureau-m__intro {
+        font-family: "ABC Whyte", sans-serif;
+        font-weight: 200;
+        letter-spacing: -0.06em;
+    }
+
+    .bureau-m__dash {
+        font-family: "TT Tricks", serif;
+        letter-spacing: -0.04em;
+    }
+
+    .bureau-m__body {
+        position: absolute;
+        left: 18px;
+        top: 565px;
+        width: 360px;
+        margin: 0;
+        font-family: "TT Tricks", serif;
+        font-size: 36px;
+        line-height: 34px;
+        letter-spacing: -0.04em;
+        white-space: pre-wrap;
+        color: var(--color-ink);
+    }
+
+    .bureau-m__rule {
+        position: absolute;
+        height: 2px;
+        background: repeating-linear-gradient(to right, var(--color-ink) 0 4px, transparent 4px 8px);
+    }
+
+    .bureau-m__rule--1 { left: 186px; top: 593px; width: 115px; }
+    .bureau-m__rule--2 { left: 24px; top: 631px; width: 346px; }
+
+    .bureau-m__cards {
+        position: absolute;
+        left: 220px;
+        top: 600px;
+        width: 50px;
+        height: auto;
+    }
+
+    .bureau-m__rest {
+        position: absolute;
+        left: 96px;
+        top: 706px;
+        width: 44px;
+        height: auto;
+    }
+}

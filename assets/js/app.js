@@ -22,8 +22,10 @@
             var visibleRef = window.innerHeight / scale;
             var lift = Math.max(-130, Math.min(240, THREE_AND_HALF - visibleRef));
             root.style.setProperty("--hero-lift", lift + "px");
+            root.style.setProperty("--bm-scale", "1");
         } else {
             root.style.setProperty("--hero-lift", "0px");
+            root.style.setProperty("--bm-scale", String(Math.min(width / MOBILE_BASE, window.innerHeight / 844)));
         }
     }
 

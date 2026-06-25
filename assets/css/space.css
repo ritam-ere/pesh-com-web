@@ -155,12 +155,12 @@
 
     .space-m__stage {
         position: absolute;
-        top: 0;
-        left: 0;
+        left: 50%;
+        top: 50%;
         width: 390px;
         height: 844px;
-        transform: translateY(var(--enter-y, 0px)) scale(var(--spm-scale, 1));
-        transform-origin: top left;
+        transform: translate(-50%, -50%) translateY(var(--enter-y, 0px)) scale(var(--spm-scale, 1));
+        transform-origin: center center;
         transition: transform var(--intro-duration) var(--ease-enter);
     }
 

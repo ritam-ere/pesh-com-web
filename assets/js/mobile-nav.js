@@ -1,8 +1,7 @@
 (function () {
     "use strict";
 
-    var triggers = document.querySelectorAll(".m-dice, .space-m__nav, .err-m__nav, .mobile-bar__menu");
-    if (!triggers.length) {
+    if (!document.body) {
         return;
     }
 
@@ -23,7 +22,9 @@
 
     var mnav = document.createElement("div");
     mnav.className = "mnav";
-    mnav.hidden = true;
+    if (document.querySelector(".m-cross")) {
+        mnav.classList.add("mnav--icononly");
+    }
 
     var links = SECTIONS.map(function (s) {
         return '<li><a class="mnav__link" href="' + s.href + '">' +
@@ -33,39 +34,37 @@
 
     mnav.innerHTML =
         '<button class="mnav__catch" type="button" aria-label="Закрыть"></button>' +
-        '<div class="mnav__panel">' +
-            '<div class="mnav__head">' +
-                '<span class="mnav__bureau">bureau</span>' +
-                '<button class="mnav__close" type="button" aria-label="Закрыть"></button>' +
-                '<span class="mnav__est">est.2026</span>' +
-            "</div>" +
-            '<ul class="mnav__list">' + links + "</ul>" +
-            '<button class="mnav__roll" type="button">бросить кубик</button>' +
+        '<div class="mnav__bar">' +
+            '<span class="mnav__bureau">bureau</span>' +
+            '<button class="mnav__btn" type="button" aria-label="Меню" aria-expanded="false">' +
+                '<span class="mnav__lines"><span></span><span></span><span></span></span>' +
+            "</button>" +
+            '<span class="mnav__est">est.2026</span>' +
         "</div>" +
+        '<div class="mnav__panel"><ul class="mnav__list">' + links +
+            '</ul><button class="mnav__roll" type="button">бросить кубик</button></div>' +
         '<div class="mnav__throw" hidden></div>';
 
     document.body.appendChild(mnav);
 
-    var panel = mnav.querySelector(".mnav__panel");
+    var btn = mnav.querySelector(".mnav__btn");
     var throwLayer = mnav.querySelector(".mnav__throw");
     var rolling = false;
 
-    function open() {
-        mnav.hidden = false;
+    function toggle() {
+        var open = mnav.classList.toggle("is-open");
+        btn.setAttribute("aria-expanded", String(open));
     }
 
     function close() {
-        mnav.hidden = true;
+        mnav.classList.remove("is-open");
+        btn.setAttribute("aria-expanded", "false");
         throwLayer.hidden = true;
         throwLayer.innerHTML = "";
-        panel.hidden = false;
         rolling = false;
     }
 
-    triggers.forEach(function (t) {
-        t.addEventListener("click", open);
-    });
-    mnav.querySelector(".mnav__close").addEventListener("click", close);
+    btn.addEventListener("click", toggle);
     mnav.querySelector(".mnav__catch").addEventListener("click", close);
     mnav.querySelector(".mnav__roll").addEventListener("click", throwDice);
 
@@ -109,7 +108,7 @@
         var dice = buildCube();
         throwLayer.innerHTML = "";
         throwLayer.appendChild(dice.wrap);
-        panel.hidden = true;
+        mnav.classList.remove("is-open");
         throwLayer.hidden = false;
 
         requestAnimationFrame(function () {
