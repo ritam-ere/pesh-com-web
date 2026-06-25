@@ -208,32 +208,39 @@
         top: 50%;
         width: 390px;
         height: 844px;
-        transform: translate(-50%, -50%) scale(var(--bm-scale, 1));
+        transform: translate(-50%, -50%) translateY(var(--enter-y, 0px)) scale(var(--bm-scale, 1));
         transform-origin: center center;
+        transition: transform var(--intro-duration) var(--ease-enter);
+    }
+
+    .is-preload .bureau-m__stage {
+        --enter-y: 900px;
     }
 
     .bureau-m__title {
         position: absolute;
-        left: 14px;
-        top: 420px;
+        left: 0;
+        top: 410px;
+        width: 100%;
         margin: 0;
         font-family: "Activist", sans-serif;
         font-weight: 400;
-        font-size: 92px;
+        font-size: 90px;
         line-height: 1;
         letter-spacing: -0.08em;
+        text-align: center;
         text-transform: uppercase;
         color: var(--color-ink);
     }
 
     .bureau-m__lead {
         position: absolute;
-        left: 18px;
-        top: 530px;
-        width: 312px;
+        left: 0;
+        top: 524px;
+        width: 100%;
         margin: 0;
-        text-align: right;
-        font-size: 36px;
+        text-align: center;
+        font-size: 42px;
         line-height: 1;
         white-space: nowrap;
     }
@@ -251,39 +258,46 @@
 
     .bureau-m__body {
         position: absolute;
-        left: 18px;
-        top: 565px;
-        width: 360px;
+        left: 0;
+        top: 566px;
+        width: 100%;
         margin: 0;
         font-family: "TT Tricks", serif;
-        font-size: 36px;
-        line-height: 34px;
+        font-size: 40px;
+        line-height: 40px;
         letter-spacing: -0.04em;
+        text-align: center;
         white-space: pre-wrap;
         color: var(--color-ink);
     }
 
-    .bureau-m__rule {
+    .bureau-m__u {
+        position: relative;
+        display: inline-block;
+    }
+
+    .bureau-m__u::after {
+        content: "";
         position: absolute;
-        height: 2px;
+        left: 0;
+        right: 0;
+        bottom: 0.04em;
+        height: 1.5px;
         background: repeating-linear-gradient(to right, var(--color-ink) 0 4px, transparent 4px 8px);
     }
 
-    .bureau-m__rule--1 { left: 186px; top: 593px; width: 115px; }
-    .bureau-m__rule--2 { left: 24px; top: 631px; width: 346px; }
-
     .bureau-m__cards {
         position: absolute;
-        left: 220px;
-        top: 600px;
+        left: 206px;
+        top: 610px;
         width: 50px;
         height: auto;
     }
 
     .bureau-m__rest {
         position: absolute;
-        left: 96px;
-        top: 706px;
+        left: 66px;
+        top: 732px;
         width: 44px;
         height: auto;
     }

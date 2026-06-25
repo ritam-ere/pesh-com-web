@@ -218,56 +218,32 @@
 
     .space-m__title {
         position: absolute;
-        left: 22px;
-        top: 307px;
+        left: 0;
+        top: 300px;
+        width: 100%;
         margin: 0;
         font-family: "Activist", sans-serif;
         font-weight: 400;
-        font-size: 84px;
-        line-height: 84px;
+        font-size: 86px;
+        line-height: 1;
         letter-spacing: -0.08em;
+        text-align: center;
         text-transform: uppercase;
         color: var(--color-ink);
-        white-space: nowrap;
     }
 
     .space-m__desc {
         position: absolute;
-        left: 41px;
-        top: 394px;
-        width: 308px;
-        height: 136px;
-    }
-
-    .space-m__desc::before,
-    .space-m__desc::after {
-        content: "";
-        position: absolute;
-        height: 0;
-        border-top: 1px dashed var(--color-ink);
-    }
-
-    .space-m__desc::before {
-        left: 18px;
-        top: 69px;
-        width: 274px;
-    }
-
-    .space-m__desc::after {
-        left: 62px;
-        top: 107px;
-        width: 186px;
+        left: 0;
+        top: 404px;
+        width: 100%;
+        text-align: center;
     }
 
     .space-m__lead {
-        position: absolute;
-        left: 34px;
-        top: 0;
-        width: 238px;
-        margin: 0;
-        text-align: right;
-        font-size: 36px;
-        line-height: 36px;
+        margin: 0 0 6px;
+        font-size: 42px;
+        line-height: 1;
         white-space: nowrap;
     }
 
@@ -285,16 +261,28 @@
     }
 
     .space-m__body {
-        position: absolute;
-        left: 0;
-        top: 39px;
         margin: 0;
         font-family: "TT Tricks", serif;
         font-weight: 400;
-        font-size: 36px;
-        line-height: 36px;
+        font-size: 42px;
+        line-height: 42px;
         letter-spacing: -0.04em;
         color: var(--color-ink);
+    }
+
+    .space-m__u {
+        position: relative;
+        display: inline-block;
+    }
+
+    .space-m__u::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0.02em;
+        height: 1.5px;
+        background: repeating-linear-gradient(to right, var(--color-ink) 0 4px, transparent 4px 8px);
     }
 
     .space-m__cta {
