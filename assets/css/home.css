@@ -150,3 +150,34 @@
 .is-preload .hero__motion {
     --enter-y: 1200px;
 }
+
+.hero__jump {
+    position: absolute;
+    z-index: 3;
+    display: block;
+    cursor: pointer;
+}
+
+.hero__jump--search {
+    left: 624px;
+    top: 628px;
+    width: 270px;
+    height: 84px;
+}
+
+.hero__jump--paths {
+    left: 242px;
+    top: 712px;
+    width: 814px;
+    height: 84px;
+}
+
+.hero__jump:hover ~ .hero__cards {
+    animation: hero-card-perk 0.55s ease;
+}
+
+@keyframes hero-card-perk {
+    0%, 100% { transform: none; }
+    35% { transform: translateY(-4px) rotate(-2.5deg); }
+    70% { transform: translateY(0) rotate(1.5deg); }
+}

@@ -64,7 +64,7 @@
 .poster:hover {
     z-index: 200;
     --hover: 1.08;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .is-preload .poster[data-side="left"] {

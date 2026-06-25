@@ -211,3 +211,49 @@
     opacity: 0;
     visibility: hidden;
 }
+
+.menu-title {
+    flex: 0 0 40px;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0 16px;
+    font-family: "Activist", sans-serif;
+    font-size: 14px;
+    line-height: 1;
+    text-transform: uppercase;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--color-ink) 0 2.4px,
+        transparent 2.4px 4.8px
+    ) bottom / 100% 1.2px no-repeat;
+}
+
+.route-map {
+    position: relative;
+    display: block;
+    margin-top: 16px;
+    height: 240px;
+    overflow: hidden;
+}
+
+.route-map__lines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+.route-map__pin {
+    position: absolute;
+    left: 48%;
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: var(--color-accent);
+    border: 1.2px solid var(--color-ink);
+}

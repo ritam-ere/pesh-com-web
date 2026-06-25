@@ -153,6 +153,39 @@
         });
     }
 
+    function smoothScrollTo(to) {
+        var start = window.scrollY;
+        var max = Math.max(0, root.scrollHeight - window.innerHeight);
+        to = Math.max(0, Math.min(max, to));
+        var t0 = null;
+        function frame(ts) {
+            if (t0 === null) {
+                t0 = ts;
+            }
+            var p = Math.min(1, (ts - t0) / 700);
+            var e = 1 - Math.pow(1 - p, 3);
+            window.scrollTo(0, start + (to - start) * e);
+            if (p < 1) {
+                requestAnimationFrame(frame);
+            }
+        }
+        requestAnimationFrame(frame);
+    }
+
+    function initHeroJumps() {
+        var lead = document.querySelector(".hero__lead");
+        var jumps = document.querySelectorAll(".hero__jump");
+        if (!lead || !jumps.length) {
+            return;
+        }
+        Array.prototype.forEach.call(jumps, function (jump) {
+            jump.addEventListener("click", function (event) {
+                event.preventDefault();
+                smoothScrollTo(lead.getBoundingClientRect().bottom + window.scrollY);
+            });
+        });
+    }
+
     if ("scrollRestoration" in history) {
         history.scrollRestoration = "manual";
     }
@@ -160,6 +193,7 @@
 
     watchPanels();
     initAccordion();
+    initHeroJumps();
     initSmoothScroll();
 
     updateScale();
