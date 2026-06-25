@@ -206,6 +206,14 @@
     filter: brightness(0.94);
 }
 
+.ticket__book.is-booked {
+    color: #9aa3a4;
+    background: #d2dadb;
+    border-color: #b9c2c3;
+    cursor: default;
+    filter: none;
+}
+
 .is-panels .logo,
 .is-panels .top-bar__section {
     opacity: 0;
@@ -229,29 +237,47 @@
     ) bottom / 100% 1.2px no-repeat;
 }
 
+.menu-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item__header {
+    flex: 0 0 32px;
+}
+
+.menu-item.is-open .menu-item__body {
+    display: flex;
+    flex: 1 1 auto;
+    min-height: 0;
+    flex-direction: column;
+}
+
 .route-map {
     position: relative;
-    display: block;
+    flex: 1 1 auto;
+    min-height: 220px;
     margin-top: 16px;
-    height: 240px;
     overflow: hidden;
 }
 
 .route-map__lines {
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.6;
+    left: 50%;
+    top: 45%;
+    width: 760px;
+    height: 760px;
+    max-width: none;
+    transform: translate(-50%, -50%);
+    opacity: 0.8;
 }
 
 .route-map__pin {
     position: absolute;
-    left: 48%;
-    top: 50%;
-    width: 14px;
-    height: 14px;
+    left: 46%;
+    top: 44%;
+    width: 16px;
+    height: 16px;
     transform: translate(-50%, -50%);
     border-radius: 50%;
     background: var(--color-accent);

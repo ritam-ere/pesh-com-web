@@ -104,6 +104,12 @@
                 body.classList.remove("is-preload");
             });
         });
+
+        window.setTimeout(function () {
+            cards.forEach(function (card) {
+                card.style.transitionDelay = "";
+            });
+        }, 3600);
     }
 
     updateScale();

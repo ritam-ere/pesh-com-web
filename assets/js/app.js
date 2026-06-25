@@ -172,6 +172,25 @@
         requestAnimationFrame(frame);
     }
 
+    function initBooking() {
+        var book = document.querySelector(".ticket__book");
+        if (!book) {
+            return;
+        }
+        book.addEventListener("click", function () {
+            if (book.classList.contains("is-booked")) {
+                return;
+            }
+            book.classList.add("is-booked");
+            book.disabled = true;
+            book.textContent = "вы участвуете";
+            var digits = document.querySelectorAll(".counter--count .counter__cell--digit");
+            if (digits.length) {
+                digits[digits.length - 1].textContent = "1";
+            }
+        });
+    }
+
     function initHeroJumps() {
         var lead = document.querySelector(".hero__lead");
         var jumps = document.querySelectorAll(".hero__jump");
@@ -194,6 +213,7 @@
     watchPanels();
     initAccordion();
     initHeroJumps();
+    initBooking();
     initSmoothScroll();
 
     updateScale();
