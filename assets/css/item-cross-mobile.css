@@ -1,0 +1,349 @@
+.m-cross {
+    display: none;
+}
+
+@media (max-width: 767px) {
+
+    .cross,
+    .modal,
+    .top-bar,
+    #grid {
+        display: none !important;
+    }
+
+    .m-cross {
+        display: block;
+        position: fixed;
+        inset: 0;
+        overflow: hidden;
+        background: #ffffff;
+
+        --m-cw: calc((100vw - 16px) * 160 / 374);
+        --m-ch: calc(var(--m-cw) * 152 / 160);
+        --m-plate-h: 32px;
+    }
+
+    .m-stage {
+        position: absolute;
+        inset: 0;
+    }
+
+    .m-grid {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        gap: 4px;
+    }
+
+    .m-grid span {
+        background: #f0f0f0;
+    }
+
+    .m-plate {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: var(--m-plate-h);
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 17px;
+        font-family: "Activist", sans-serif;
+        font-size: 16px;
+        line-height: 1;
+        text-transform: uppercase;
+        z-index: 3;
+        transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    .m-plate__index {
+        font-family: "ABC Whyte", sans-serif;
+        font-weight: 200;
+        font-size: 18px;
+        letter-spacing: -0.04em;
+    }
+
+    .m-cross.is-give .m-plate {
+        background: var(--color-accent);
+        color: var(--color-ink);
+    }
+
+    .m-cross.is-receive .m-plate,
+    .m-cross.is-form .m-plate {
+        background: #1e1e1e;
+        color: #ffffff;
+    }
+
+    .m-dice {
+        position: absolute;
+        left: 50%;
+        top: 6px;
+        transform: translateX(-50%);
+        width: 46px;
+        height: 46px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        border: 1.2px dashed var(--color-ink);
+        background: #f0f0f0;
+        cursor: pointer;
+        z-index: 4;
+    }
+
+    .m-burger {
+        display: flex;
+        flex-direction: column;
+        gap: 4.5px;
+    }
+
+    .m-burger span {
+        display: block;
+        width: 22px;
+        height: 1.6px;
+        background: var(--color-ink);
+    }
+
+    .m-matrix {
+        position: absolute;
+        top: var(--m-plate-h);
+        left: 0;
+        width: 100%;
+        height: calc(var(--m-ch) * 3 + 8px);
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: none;
+        z-index: 2;
+    }
+
+    .m-matrix[hidden] {
+        display: none;
+    }
+
+    .m-matrix::-webkit-scrollbar {
+        display: none;
+    }
+
+    .m-cards {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-rows: repeat(3, var(--m-ch));
+        grid-auto-columns: var(--m-cw);
+        gap: 4px;
+        width: max-content;
+        height: 100%;
+    }
+
+    .m-card {
+        position: relative;
+        padding: 0;
+        border: 1px dashed var(--color-ink);
+        background-color: #e7e7e7;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        cursor: pointer;
+        transition: background-color 0.35s ease;
+    }
+
+    .m-card--empty {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: default;
+        background-image: none !important;
+    }
+
+    .m-cross.is-give .m-card.is-picked {
+        background-color: var(--color-accent);
+    }
+
+    .m-cross.is-receive .m-card.is-picked {
+        background-color: #1e1e1e;
+    }
+
+    .m-panel[hidden] {
+        display: none;
+    }
+
+    .m-panel {
+        position: absolute;
+        left: 22px;
+        right: 22px;
+        bottom: 12px;
+        display: flex;
+        flex-direction: column;
+        background: #ffffff;
+        z-index: 3;
+    }
+
+    .m-panel__content {
+        padding: 12px 12px 16px;
+    }
+
+    .m-note {
+        font-family: "ABC Whyte", sans-serif;
+        font-weight: 200;
+        font-size: 18px;
+        letter-spacing: -0.04em;
+        line-height: 20px;
+    }
+
+    .m-info {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin: 0;
+    }
+
+    .m-info__row {
+        display: grid;
+        grid-template-columns: 75px 1fr;
+        gap: 16px;
+    }
+
+    .m-info__row dt {
+        font-family: "Activist", sans-serif;
+        font-size: 16px;
+        letter-spacing: -0.03em;
+        line-height: 1;
+        text-transform: uppercase;
+    }
+
+    .m-info__row dd {
+        margin: 0;
+        font-family: "ABC Whyte", sans-serif;
+        font-weight: 200;
+        font-size: 18px;
+        letter-spacing: -0.04em;
+        line-height: 20px;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+    }
+
+    .m-panel__btn {
+        flex: none;
+        width: 100%;
+        height: 38px;
+        font-family: "Activist", sans-serif;
+        font-size: 16px;
+        text-transform: uppercase;
+        text-align: center;
+        color: #9aa3a4;
+        background: #d2dadb;
+        border: none;
+        border-top: 1.2px dashed var(--color-ink);
+        cursor: not-allowed;
+        transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .m-panel__btn:not(:disabled) {
+        color: var(--color-ink);
+        background: var(--color-accent);
+        cursor: pointer;
+    }
+
+    .m-form[hidden] {
+        display: none;
+    }
+
+    .m-form {
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+    }
+
+    .m-form__fields {
+        position: absolute;
+        top: calc(var(--m-plate-h) + 32px);
+        left: 22px;
+        right: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .m-field__label {
+        display: block;
+        margin-bottom: 8px;
+        font-family: "Activist", sans-serif;
+        font-size: 16px;
+        text-transform: uppercase;
+    }
+
+    .m-field__control {
+        position: relative;
+        display: block;
+    }
+
+    .m-field__input {
+        width: 100%;
+        height: 58px;
+        padding: 0 52px 0 12px;
+        font-family: "ABC Whyte", sans-serif;
+        font-size: 16px;
+        font-weight: 300;
+        letter-spacing: -0.04em;
+        color: var(--color-ink);
+        background: #f0f0f0;
+        border: 1.2px dashed var(--color-ink);
+        border-radius: 0;
+        outline: none;
+    }
+
+    .m-field__input::placeholder {
+        color: #9aa3a4;
+    }
+
+    .m-field__clear {
+        position: absolute;
+        top: 50%;
+        right: 13px;
+        transform: translateY(-50%);
+        width: 32px;
+        height: 32px;
+        display: none;
+    }
+
+    .m-field.has-value .m-field__clear {
+        display: block;
+    }
+
+    .m-form__submit {
+        position: absolute;
+        left: 22px;
+        right: 22px;
+        bottom: 12px;
+        height: 38px;
+        font-family: "Activist", sans-serif;
+        font-size: 16px;
+        text-transform: uppercase;
+        color: var(--color-ink);
+        background: var(--color-accent);
+        border: none;
+        border-top: 1.2px dashed var(--color-ink);
+        cursor: pointer;
+    }
+
+    .m-form__submit.is-busy {
+        cursor: default;
+    }
+
+    .m-matrix.is-leaving {
+        transition: transform 0.5s var(--ease-ribbon), opacity 0.5s ease;
+        transform: translateY(-120%);
+        opacity: 0;
+    }
+
+    .m-matrix.is-entering {
+        transform: translateY(-120%);
+        opacity: 0;
+    }
+
+    .m-matrix.is-entered {
+        transition: transform 0.6s var(--ease-ribbon), opacity 0.6s ease;
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

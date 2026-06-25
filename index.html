@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PESH.COM — Бюро</title>
+    <meta name="description" content="PESH.COM (Worldwide) — бюро поиска рандомных путей, обмена редкостей и безопасного уединения.">
+    <link rel="preload" href="assets/fonts/abc-whyte.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/activist.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/tt-tricks.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/panels.css">
+</head>
+<body class="is-preload">
+
+    <div class="grid" id="grid" aria-hidden="true"></div>
+
+    <header class="top-bar" data-enter="top">
+        <div class="top-bar__scale">
+            <div class="top-bar__motion">
+                <a class="logo" href="index.html" aria-label="PESH.COM, est. 2026">
+                    <span class="logo__name">pesh.com</span>
+                    <span class="logo__est">est.2026</span>
+                </a>
+
+                <nav class="nav-pill" aria-label="Разделы">
+                    <button class="nav-pill__trigger" type="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="nav-pill__dice">
+                            <img src="assets/images/dice.png" alt="" width="28" height="28">
+                        </span>
+                        <span class="nav-pill__label">бюро</span>
+                        <span class="nav-pill__index">(1)</span>
+                    </button>
+                </nav>
+
+                <span class="top-bar__section">Bureau</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero" data-enter="bottom" aria-label="PESH.COM">
+            <div class="hero__scale">
+                <div class="hero__motion">
+                    <div class="hero__layer">
+                        <h1 class="hero__title">pesh.com</h1>
+
+                        <p class="hero__intro">
+                            <span class="u-sans">(Worldwide)</span><span class="u-serif"> — это</span>
+                        </p>
+
+                        <p class="hero__lead">бюро  поиска
+рандомных          путей,
+обмена  редкостей
+из этих мест
+ и      безопасного
+уединения</p>
+
+                        <span class="hero__rule hero__rule--search" aria-hidden="true"></span>
+                        <span class="hero__rule hero__rule--paths" aria-hidden="true"></span>
+
+                        <img class="hero__cards" src="assets/images/hero-cards.svg" alt="" width="144" height="106">
+                        <img class="hero__rest" src="assets/images/hero-rest-card.svg" alt="" width="63" height="63">
+
+                        <span class="hero__note hero__note--one">( 1 )</span>
+                        <span class="hero__note hero__note--two">( 2, 3 )</span>
+                        <span class="hero__note hero__note--four">( 4 )</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="hero__end" id="hero-end" aria-hidden="true"></div>
+
+        <section class="panels" id="panels" aria-label="Бронирование маршрута">
+
+            <aside class="panel panel--menu" aria-label="Разделы маршрута">
+                <div class="panel__inner">
+                    <div class="accordion" id="accordion">
+                        <section class="menu-item">
+                            <button class="menu-item__header" type="button" aria-expanded="false">овервью</button>
+                            <div class="menu-item__body">
+                                <p class="menu-item__text">Раздел в подготовке.</p>
+                            </div>
+                        </section>
+
+                        <section class="menu-item">
+                            <button class="menu-item__header" type="button" aria-expanded="false">манифест</button>
+                            <div class="menu-item__body">
+                                <p class="menu-item__text">Раздел в подготовке.</p>
+                            </div>
+                        </section>
+
+                        <section class="menu-item is-open">
+                            <button class="menu-item__header" type="button" aria-expanded="true">локация</button>
+                            <div class="menu-item__body">
+                                <p class="menu-item__text">Маршрут пройдет по&nbsp;правой стороне хребта Атласского, через обзорную площадку и&nbsp;до&nbsp;р.&nbsp;Калька</p>
+                            </div>
+                        </section>
+
+                        <section class="menu-item">
+                            <button class="menu-item__header" type="button" aria-expanded="false">детали сопровождения</button>
+                            <div class="menu-item__body">
+                                <p class="menu-item__text">Раздел в подготовке.</p>
+                            </div>
+                        </section>
+
+                        <section class="menu-item">
+                            <button class="menu-item__header" type="button" aria-expanded="false">особые предложения</button>
+                            <div class="menu-item__body">
+                                <p class="menu-item__text">Раздел в подготовке.</p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </aside>
+
+            <aside class="panel panel--ticket" aria-label="Стоимость билета">
+                <div class="panel__inner">
+                    <p class="ticket__lead">Стоимость билета случайна
+и зависит от того, сколько ходоков
+поучаствует в маршруте:</p>
+
+                    <p class="ticket__caption ticket__caption--count">количество ходоков:</p>
+                    <div class="counter counter--count">
+                        <span class="counter__cell counter__cell--unit">шт</span>
+                        <span class="counter__cell"></span>
+                        <span class="counter__cell counter__cell--digit">2</span>
+                        <span class="counter__cell counter__cell--digit">0</span>
+                    </div>
+
+                    <p class="ticket__caption ticket__caption--price">Когда набор завершится,
+каждый ходок получит билет за:</p>
+                    <div class="counter counter--price">
+                        <span class="counter__cell counter__cell--unit">₽</span>
+                        <span class="counter__cell"></span>
+                        <span class="counter__cell counter__cell--digit">5</span>
+                        <span class="counter__cell counter__cell--digit">8</span>
+                        <span class="counter__cell counter__cell--digit">1</span>
+                        <span class="counter__cell counter__cell--digit">0</span>
+                    </div>
+
+                    <p class="ticket__deadline">набор на маршрут до 18/06/2026</p>
+                    <button class="ticket__book" type="button">забронировать место</button>
+                </div>
+            </aside>
+
+        </section>
+    </main>
+
+    <script src="assets/js/grid.js"></script>
+    <script src="assets/js/nav.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

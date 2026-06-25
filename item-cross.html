@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PESH.COM — Айтем-кросс</title>
+    <meta name="description" content="Айтем-кросс PESH.COM — обмен редкостями между ходоками.">
+    <link rel="preload" href="assets/fonts/abc-whyte.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/activist.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/item-cross.css">
+    <link rel="stylesheet" href="assets/css/item-cross-mobile.css">
+</head>
+<body class="is-preload">
+    <div class="grid" id="grid" aria-hidden="true"></div>
+
+    <header class="top-bar">
+        <div class="top-bar__scale">
+            <div class="top-bar__motion">
+                <nav class="nav-pill" aria-label="Разделы">
+                    <button class="nav-pill__trigger" type="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="nav-pill__dice">
+                            <img src="assets/images/dice.png" alt="" width="28" height="28">
+                        </span>
+                        <span class="nav-pill__label">айтем-кросс</span>
+                        <span class="nav-pill__index">(3)</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="cross" aria-label="Обмен айтемами">
+            <div class="cross__scale">
+                <div class="cross__stage">
+
+                    <div class="ribbon ribbon--top" data-enter="top">
+                        <div class="ribbon__track" id="track-top"></div>
+                    </div>
+                    <p class="plate plate--receive">я получу взамен...</p>
+
+                    <div class="action" id="action">
+                        <div class="action__panel">
+                            <p class="action__note" id="note">Нажмите на слот в инвентаре ↓,
+чтобы выставить свой айтем на обмен</p>
+                            <button class="action__button" id="exchange" type="button" disabled>обменять айтемы</button>
+                        </div>
+                    </div>
+
+                    <p class="plate plate--give">я обменяю...</p>
+                    <div class="ribbon ribbon--bottom" data-enter="bottom">
+                        <div class="ribbon__track" id="track-bottom"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="m-cross" aria-label="Обмен айтемами">
+            <div class="m-stage" id="m-stage">
+                <div class="m-grid" id="m-grid" aria-hidden="true"></div>
+
+                <p class="m-plate" id="m-plate">
+                    <span class="m-plate__label" id="m-plate-label">я обменяю...</span>
+                    <span class="m-plate__index" id="m-plate-index">(1)</span>
+                </p>
+                <button class="m-dice" id="m-dice" type="button" aria-label="Меню">
+                    <span class="m-burger"><span></span><span></span><span></span></span>
+                </button>
+
+                <div class="m-matrix" id="m-matrix">
+                    <div class="m-cards" id="m-cards"></div>
+                </div>
+
+                <div class="m-panel" id="m-panel">
+                    <div class="m-panel__content" id="m-content"></div>
+                    <button class="m-panel__btn" id="m-btn" type="button" disabled>хочу обменять это</button>
+                </div>
+
+                <form class="m-form" id="m-form" hidden novalidate>
+                    <div class="m-form__fields">
+                        <label class="m-field">
+                            <span class="m-field__label">полное имя</span>
+                            <span class="m-field__control">
+                                <input class="m-field__input" name="name" type="text" placeholder="Путник Бродячий" autocomplete="name" required>
+                                <button class="m-field__clear icon-x" type="button" tabindex="-1" aria-label="Очистить"></button>
+                            </span>
+                        </label>
+                        <label class="m-field">
+                            <span class="m-field__label">почта</span>
+                            <span class="m-field__control">
+                                <input class="m-field__input" name="email" type="email" placeholder="name@gmail.com" autocomplete="email" required>
+                                <button class="m-field__clear icon-x" type="button" tabindex="-1" aria-label="Очистить"></button>
+                            </span>
+                        </label>
+                        <label class="m-field">
+                            <span class="m-field__label">комментарии*</span>
+                            <span class="m-field__control">
+                                <input class="m-field__input" name="comment" type="text" placeholder="Крутой стафф, спасибо!" required>
+                                <button class="m-field__clear icon-x" type="button" tabindex="-1" aria-label="Очистить"></button>
+                            </span>
+                        </label>
+                    </div>
+                    <button class="m-form__submit" id="m-submit" type="submit">обменять айтем</button>
+                </form>
+            </div>
+        </section>
+
+        <div class="modal" id="modal" hidden>
+            <div class="modal__backdrop" data-close></div>
+            <form class="modal__card" id="form" novalidate>
+                <button class="modal__close icon-x" type="button" data-close aria-label="Закрыть"></button>
+
+                <div class="modal__body" id="modal-body">
+                    <p class="modal__title">заполните форму, чтобы приобрести айтем</p>
+
+                    <div class="modal__fields">
+                        <label class="field">
+                            <span class="field__label">полное имя</span>
+                            <span class="field__control">
+                                <input class="field__input" name="name" type="text" placeholder="Путник Бродячий" autocomplete="name" required>
+                                <button class="field__clear icon-x" type="button" tabindex="-1" aria-label="Очистить"></button>
+                            </span>
+                        </label>
+
+                        <label class="field">
+                            <span class="field__label">почта</span>
+                            <span class="field__control">
+                                <input class="field__input" name="email" type="email" placeholder="name@gmail.com" autocomplete="email" required>
+                                <button class="field__clear icon-x" type="button" tabindex="-1" aria-label="Очистить"></button>
+                            </span>
+                        </label>
+
+                        <label class="field">
+                            <span class="field__label">комментарий*</span>
+                            <span class="field__control">
+                                <input class="field__input" name="comment" type="text" placeholder="Крутой стафф, спасибо!" required>
+                                <button class="field__clear icon-x" type="button" tabindex="-1" aria-label="Очистить"></button>
+                            </span>
+                        </label>
+                    </div>
+
+                    <button class="modal__submit" type="submit">обменять</button>
+                </div>
+
+                <div class="modal__success" id="modal-success" hidden>
+                    <p class="modal__success-text">Спасибо за транзакцию!
+Цифровой слепок айтема скоро придёт
+на указанный вами почтовый адрес.</p>
+                    <button class="modal__submit" type="button" data-close>супер</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="assets/js/grid.js"></script>
+    <script src="assets/js/nav.js"></script>
+    <script src="assets/js/item-cross.js"></script>
+</body>
+</html>

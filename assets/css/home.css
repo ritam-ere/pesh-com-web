@@ -1,0 +1,152 @@
+.hero {
+    position: relative;
+    z-index: 1;
+
+    height: calc((1180px - var(--hero-lift)) * var(--scale));
+}
+
+.hero__motion {
+    position: relative;
+    height: 1140px;
+}
+
+.hero__layer {
+    position: absolute;
+    inset: 0;
+    transform: translateY(calc(-1 * var(--hero-lift)));
+}
+
+.hero__title {
+    position: absolute;
+    left: 168px;
+    top: 300px;
+    width: 945px;
+    font-family: "Activist", sans-serif;
+    font-weight: 400;
+    font-size: 240px;
+    line-height: 1;
+    letter-spacing: -0.08em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.hero__intro {
+    position: absolute;
+    left: 0;
+    top: 547px;
+    width: 100%;
+    font-size: 84px;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.u-sans {
+    font-weight: 200;
+    letter-spacing: -0.06em;
+}
+
+.u-serif {
+    font-family: "TT Tricks", serif;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+}
+
+.hero__lead {
+    position: absolute;
+    left: 228px;
+    top: 628px;
+    width: 832px;
+    font-family: "TT Tricks", serif;
+    font-weight: 400;
+    font-size: 84px;
+    line-height: 84px;
+    letter-spacing: -0.04em;
+    text-align: center;
+    white-space: pre-wrap;
+}
+
+.hero__rule {
+    position: absolute;
+    z-index: 1;
+    height: 2px;
+    background: repeating-linear-gradient(
+        to right,
+        var(--color-ink) 0 4px,
+        transparent 4px 8px
+    );
+}
+
+.hero__rule--search {
+    left: 624px;
+    top: 706px;
+    width: 270px;
+}
+
+.hero__rule--paths {
+    left: 242px;
+    top: 794px;
+    width: 814px;
+}
+
+.hero__cards {
+    position: absolute;
+    z-index: 2;
+    left: 675px;
+    top: 711px;
+    width: 144px;
+    height: 106px;
+}
+
+.hero__rest {
+    position: absolute;
+    z-index: 2;
+    left: 413px;
+    top: 974px;
+    width: 63px;
+    height: 63px;
+}
+
+.hero__note {
+    position: absolute;
+    z-index: 2;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.06em;
+    white-space: nowrap;
+}
+
+.hero__note--one {
+    left: 1058px;
+    top: 746px;
+}
+
+.hero__note--two {
+    left: 884px;
+    top: 914px;
+}
+
+.hero__note--four {
+    left: 850px;
+    top: 1082px;
+}
+
+.top-bar__motion,
+.hero__motion {
+    transform: translateY(var(--enter-y, 0px)) scale(var(--scale));
+    transform-origin: top center;
+    transition: transform var(--intro-duration) var(--ease-enter);
+}
+
+.hero__end {
+    height: 1px;
+}
+
+.is-preload .top-bar__motion {
+    --enter-y: -260px;
+}
+
+.is-preload .hero__motion {
+    --enter-y: 1200px;
+}

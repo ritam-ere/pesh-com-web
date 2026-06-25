@@ -1,0 +1,226 @@
+.top-bar__motion {
+    transform: translateY(var(--enter-y, 0px)) scale(var(--scale));
+    transform-origin: top center;
+    transition: transform var(--intro-duration) var(--ease-enter);
+}
+
+.err {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.err__scale {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+}
+
+.err__stage {
+    position: relative;
+    width: 1280px;
+    height: 832px;
+    transform: translateY(var(--enter-y, 0px)) scale(var(--sp-scale, 1));
+    transform-origin: center center;
+    transition: transform var(--intro-duration) var(--ease-enter);
+}
+
+.is-preload .top-bar__motion {
+    --enter-y: -260px;
+}
+
+.is-preload .err__stage {
+    --enter-y: 1100px;
+}
+
+.err__lines {
+    position: absolute;
+    left: -47px;
+    top: 0;
+    width: 1327px;
+    height: 1326px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.err__text {
+    position: absolute;
+    left: 0;
+    top: 252px;
+    width: 100%;
+    margin: 0;
+    z-index: 1;
+    font-family: "TT Tricks", serif;
+    font-weight: 400;
+    font-size: 84px;
+    line-height: 84px;
+    letter-spacing: -0.04em;
+    text-align: center;
+    color: var(--color-ink);
+}
+
+.err__rand {
+    font-family: "ABC Whyte", sans-serif;
+    font-weight: 200;
+    letter-spacing: -0.06em;
+}
+
+.err__cta {
+    position: absolute;
+    left: 50%;
+    top: 768px;
+    transform: translateX(-50%);
+    width: calc(((100vw - 48px) * 492 / 1232 + 8px) / var(--sp-scale, 1));
+    height: 32px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Activist", sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--color-ink);
+    text-decoration: none;
+    background: var(--color-accent);
+    border: none;
+    border-top: 1px dashed var(--color-ink);
+    transition: filter 0.2s ease;
+}
+
+.err__cta:hover {
+    filter: brightness(0.96);
+}
+
+.err-m {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    :root {
+        --color-grid: #f0f0f0;
+    }
+
+    .err,
+    .top-bar {
+        display: none !important;
+    }
+
+    .err-m {
+        display: block;
+        position: fixed;
+        inset: 0;
+        overflow: hidden;
+        background: #ffffff;
+    }
+
+    .err-m__stage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 390px;
+        height: 844px;
+        transform: translateY(var(--enter-y, 0px)) scale(var(--spm-scale, 1));
+        transform-origin: top left;
+        transition: transform var(--intro-duration) var(--ease-enter);
+    }
+
+    .is-preload .err-m__stage {
+        --enter-y: 900px;
+    }
+
+    .err-m__lines {
+        position: absolute;
+        left: -47px;
+        top: 0;
+        width: 845px;
+        height: 844px;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .err-m__bureau {
+        position: absolute;
+        left: 22px;
+        top: 67px;
+        z-index: 1;
+        font-family: "Activist", sans-serif;
+        font-size: 16px;
+        line-height: 1;
+        text-transform: uppercase;
+    }
+
+    .err-m__est {
+        position: absolute;
+        right: 22px;
+        top: 66px;
+        z-index: 1;
+        font-family: "ABC Whyte", sans-serif;
+        font-weight: 200;
+        font-size: 18px;
+        letter-spacing: -0.06em;
+        line-height: 1;
+    }
+
+    .err-m__nav {
+        position: absolute;
+        left: 172px;
+        top: 52px;
+        z-index: 1;
+        width: 46px;
+        height: 46px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        border: 1.2px dashed var(--color-ink);
+        background: #f0f0f0;
+        cursor: pointer;
+    }
+
+    .err-m__burger {
+        display: flex;
+        flex-direction: column;
+        gap: 4.5px;
+    }
+
+    .err-m__burger span {
+        display: block;
+        width: 22px;
+        height: 1.6px;
+        background: var(--color-ink);
+    }
+
+    .err-m__text {
+        position: absolute;
+        left: 0;
+        top: 407px;
+        width: 100%;
+        margin: 0;
+        z-index: 1;
+        font-family: "Activist", sans-serif;
+        font-size: 16px;
+        text-transform: uppercase;
+        text-align: center;
+        color: var(--color-ink);
+    }
+
+    .err-m__cta {
+        position: absolute;
+        left: 22px;
+        top: 713px;
+        width: 346px;
+        height: 32px;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Activist", sans-serif;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: var(--color-ink);
+        text-decoration: none;
+        background: var(--color-accent);
+        border: none;
+        border-top: 1.2px dashed var(--color-ink);
+    }
+}

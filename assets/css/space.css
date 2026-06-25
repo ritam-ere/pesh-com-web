@@ -1,0 +1,318 @@
+.top-bar__motion {
+    transform: translateY(var(--enter-y, 0px)) scale(var(--scale));
+    transform-origin: top center;
+    transition: transform var(--intro-duration) var(--ease-enter);
+}
+
+.space {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.space__scale {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+}
+
+.space__stage {
+    position: relative;
+    width: 1280px;
+    height: 832px;
+    transform: translateY(var(--enter-y, 0px)) scale(var(--sp-scale, 1));
+    transform-origin: center center;
+    transition: transform var(--intro-duration) var(--ease-enter);
+}
+
+.is-preload .top-bar__motion {
+    --enter-y: -260px;
+}
+
+.is-preload .space__stage {
+    --enter-y: 1100px;
+}
+
+.space__title {
+    position: absolute;
+    left: 0;
+    top: 150px;
+    width: 100%;
+    margin: 0;
+    font-family: "Activist", sans-serif;
+    font-weight: 400;
+    font-size: 240px;
+    line-height: 1;
+    letter-spacing: -0.08em;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--color-ink);
+}
+
+.space__lead {
+    position: absolute;
+    left: 0;
+    top: 397px;
+    width: 100%;
+    margin: 0;
+    font-size: 84px;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.space__coords {
+    display: inline-block;
+    font-family: "ABC Whyte", sans-serif;
+    font-weight: 200;
+    letter-spacing: -0.06em;
+
+    transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.5s ease;
+}
+
+.space__dash {
+    font-family: "TT Tricks", serif;
+    letter-spacing: -0.04em;
+}
+
+.space__body {
+    position: absolute;
+    left: 0;
+    top: 481px;
+    width: 100%;
+    margin: 0;
+    font-family: "TT Tricks", serif;
+    font-weight: 400;
+    font-size: 84px;
+    line-height: 84px;
+    letter-spacing: -0.04em;
+    text-align: center;
+    color: var(--color-ink);
+}
+
+.space__u {
+    position: relative;
+    display: inline-block;
+}
+
+.space__u::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.02em;
+    height: 2px;
+    background: repeating-linear-gradient(to right, var(--color-ink) 0 4px, transparent 4px 8px);
+}
+
+.space__cta {
+    position: absolute;
+    left: 50%;
+    top: 768px;
+    transform: translateX(-50%);
+    width: calc(((100vw - 48px) * 492 / 1232 + 8px) / var(--sp-scale, 1));
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Activist", sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--color-ink);
+    text-decoration: none;
+    background: var(--color-accent);
+    border: none;
+    border-top: 1px dashed var(--color-ink);
+    transition: filter 0.2s ease;
+}
+
+.space__cta:hover {
+    filter: brightness(0.96);
+}
+
+.space-m {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    :root {
+        --color-grid: #f0f0f0;
+    }
+
+    .space,
+    .top-bar {
+        display: none !important;
+    }
+
+    .space-m {
+        display: block;
+        position: fixed;
+        inset: 0;
+        overflow: hidden;
+        background: #ffffff;
+    }
+
+    .space-m__stage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 390px;
+        height: 844px;
+        transform: translateY(var(--enter-y, 0px)) scale(var(--spm-scale, 1));
+        transform-origin: top left;
+        transition: transform var(--intro-duration) var(--ease-enter);
+    }
+
+    .is-preload .space-m__stage {
+        --enter-y: 900px;
+    }
+
+    .space-m__bureau {
+        position: absolute;
+        left: 22px;
+        top: 67px;
+        font-family: "Activist", sans-serif;
+        font-size: 16px;
+        line-height: 1;
+        text-transform: uppercase;
+    }
+
+    .space-m__est {
+        position: absolute;
+        right: 22px;
+        top: 66px;
+        font-family: "ABC Whyte", sans-serif;
+        font-weight: 200;
+        font-size: 18px;
+        letter-spacing: -0.06em;
+        line-height: 1;
+    }
+
+    .space-m__nav {
+        position: absolute;
+        left: 172px;
+        top: 52px;
+        width: 46px;
+        height: 46px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        border: 1.2px dashed var(--color-ink);
+        background: #f0f0f0;
+        cursor: pointer;
+    }
+
+    .space-m__burger {
+        display: flex;
+        flex-direction: column;
+        gap: 4.5px;
+    }
+
+    .space-m__burger span {
+        display: block;
+        width: 22px;
+        height: 1.6px;
+        background: var(--color-ink);
+    }
+
+    .space-m__title {
+        position: absolute;
+        left: 22px;
+        top: 307px;
+        margin: 0;
+        font-family: "Activist", sans-serif;
+        font-weight: 400;
+        font-size: 84px;
+        line-height: 84px;
+        letter-spacing: -0.08em;
+        text-transform: uppercase;
+        color: var(--color-ink);
+        white-space: nowrap;
+    }
+
+    .space-m__desc {
+        position: absolute;
+        left: 41px;
+        top: 394px;
+        width: 308px;
+        height: 136px;
+    }
+
+    .space-m__desc::before,
+    .space-m__desc::after {
+        content: "";
+        position: absolute;
+        height: 0;
+        border-top: 1px dashed var(--color-ink);
+    }
+
+    .space-m__desc::before {
+        left: 18px;
+        top: 69px;
+        width: 274px;
+    }
+
+    .space-m__desc::after {
+        left: 62px;
+        top: 107px;
+        width: 186px;
+    }
+
+    .space-m__lead {
+        position: absolute;
+        left: 34px;
+        top: 0;
+        width: 238px;
+        margin: 0;
+        text-align: right;
+        font-size: 36px;
+        line-height: 36px;
+        white-space: nowrap;
+    }
+
+    .space-m__coords {
+        display: inline-block;
+        font-family: "ABC Whyte", sans-serif;
+        font-weight: 200;
+        letter-spacing: -0.06em;
+        transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.5s ease;
+    }
+
+    .space-m__dash {
+        font-family: "TT Tricks", serif;
+        letter-spacing: -0.04em;
+    }
+
+    .space-m__body {
+        position: absolute;
+        left: 0;
+        top: 39px;
+        margin: 0;
+        font-family: "TT Tricks", serif;
+        font-weight: 400;
+        font-size: 36px;
+        line-height: 36px;
+        letter-spacing: -0.04em;
+        color: var(--color-ink);
+    }
+
+    .space-m__cta {
+        position: absolute;
+        left: 22px;
+        top: 699px;
+        width: 346px;
+        height: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Activist", sans-serif;
+        font-size: 16px;
+        text-transform: uppercase;
+        color: var(--color-ink);
+        text-decoration: none;
+        background: var(--color-accent);
+        border: none;
+        border-top: 1.2px dashed var(--color-ink);
+    }
+}

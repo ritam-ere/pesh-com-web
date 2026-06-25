@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PESH.COM — Маршрут не найден</title>
+    <meta name="description" content="Кажется, вы случайно сошли с маршрута.">
+    <link rel="preload" href="assets/fonts/abc-whyte.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/activist.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/tt-tricks.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/error.css">
+</head>
+<body class="is-preload">
+    <div class="grid" id="grid" aria-hidden="true"></div>
+
+    <header class="top-bar">
+        <div class="top-bar__scale">
+            <div class="top-bar__motion">
+                <a class="logo" href="index.html" aria-label="PESH.COM, est. 2026">
+                    <span class="logo__name">pesh.com</span>
+                    <span class="logo__est">est.2026</span>
+                </a>
+                <span class="top-bar__section">Bureau</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="err" aria-label="Страница не найдена">
+            <div class="err__scale">
+                <div class="err__stage">
+                    <img class="err__lines" src="assets/images/altitude-lines-desktop.svg" alt="" aria-hidden="true">
+
+                    <p class="err__text">Кажется,<br>вы <span class="err__rand">(случайно)</span><br>сошли с маршрута</p>
+
+                    <a class="err__cta" href="index.html">на главную страницу</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="err-m" aria-label="Страница не найдена">
+            <div class="err-m__stage">
+                <img class="err-m__lines" src="assets/images/altitude-lines-mobile.svg" alt="" aria-hidden="true">
+
+                <span class="err-m__bureau">bureau</span>
+                <span class="err-m__est">est.2026</span>
+                <button class="err-m__nav" type="button" aria-label="Меню">
+                    <span class="err-m__burger"><span></span><span></span><span></span></span>
+                </button>
+
+                <p class="err-m__text">кажется, вы сошли с маршрута</p>
+
+                <a class="err-m__cta" href="index.html">на главную страницу</a>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/js/grid.js"></script>
+    <script src="assets/js/error.js"></script>
+</body>
+</html>

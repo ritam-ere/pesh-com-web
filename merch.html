@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PESH.COM — Мерч</title>
+    <meta name="description" content="Мерч PESH.COM — постеры коллекций Lost in web, Сны и Leg Party.">
+    <link rel="preload" href="assets/fonts/abc-whyte.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/activist.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/merch.css">
+</head>
+<body class="is-preload">
+
+    <div class="grid" id="grid" aria-hidden="true"></div>
+
+    <header class="top-bar">
+        <div class="top-bar__scale">
+            <div class="top-bar__motion">
+                <nav class="nav-pill" aria-label="Разделы">
+                    <button class="nav-pill__trigger" type="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="nav-pill__dice">
+                            <img src="assets/images/dice.png" alt="" width="28" height="28">
+                        </span>
+                        <span class="nav-pill__label">мерч</span>
+                        <span class="nav-pill__index">(2)</span>
+                    </button>
+                </nav>
+
+                <div class="mobile-bar">
+                    <span class="mobile-bar__word">Bureau</span>
+                    <button class="mobile-bar__menu" type="button" aria-label="Меню">
+                        <span class="mobile-bar__burger"></span>
+                    </button>
+                    <span class="mobile-bar__est">est.2026</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="merch" aria-label="Постеры">
+            <div class="merch__scale">
+                <div class="merch__stage" id="stage">
+
+                    <div class="merch-controls" data-enter="bottom">
+                        <button class="merch-arrow merch-arrow--prev" id="prev" type="button" aria-label="Предыдущий постер">
+                            <span class="merch-arrow__chevron"></span>
+                        </button>
+                        <p class="merch-title" id="title">Постер «Lost in web»&nbsp;(1)</p>
+                        <button class="merch-arrow merch-arrow--next" id="next" type="button" aria-label="Следующий постер">
+                            <span class="merch-arrow__chevron"></span>
+                        </button>
+                        <a class="merch-download" id="download" target="_blank" rel="noopener">скачать постер</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/js/grid.js"></script>
+    <script src="assets/js/nav.js"></script>
+    <script src="assets/js/merch.js"></script>
+</body>
+</html>

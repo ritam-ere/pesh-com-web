@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PESH.COM — Пространство</title>
+    <meta name="description" content="Пространство PESH.COM — сеть пространств для отдыха после долгого пути.">
+    <link rel="preload" href="assets/fonts/abc-whyte.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/activist.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/tt-tricks.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/space.css">
+</head>
+<body class="is-preload">
+    <div class="grid" id="grid" aria-hidden="true"></div>
+
+    <header class="top-bar">
+        <div class="top-bar__scale">
+            <div class="top-bar__motion">
+                <a class="logo" href="index.html" aria-label="PESH.COM, est. 2026">
+                    <span class="logo__name">pesh.com</span>
+                    <span class="logo__est">est.2026</span>
+                </a>
+
+                <nav class="nav-pill" aria-label="Разделы">
+                    <button class="nav-pill__trigger" type="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="nav-pill__dice">
+                            <img src="assets/images/dice.png" alt="" width="28" height="28">
+                        </span>
+                        <span class="nav-pill__label">пространство</span>
+                        <span class="nav-pill__index">(4)</span>
+                    </button>
+                </nav>
+
+                <span class="top-bar__section">Bureau</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="space" aria-label="Пространство">
+            <div class="space__scale">
+                <div class="space__stage">
+                    <h1 class="space__title">Трансфер</h1>
+
+                    <div class="space__desc">
+                        <p class="space__lead"><span class="space__coords">(124°11”)</span> <span class="space__dash">— это</span></p>
+                        <p class="space__body">
+                            <span class="space__u space__u--1">сеть пространств</span><br>
+                            <span class="space__u space__u--2">для отдыха</span><br>
+                            после долгого пути
+                        </p>
+                    </div>
+
+                    <a class="space__cta" href="#">смотреть облет пространства</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-m" aria-label="Пространство">
+            <div class="space-m__stage">
+                <span class="space-m__bureau">bureau</span>
+                <span class="space-m__est">est.2026</span>
+                <button class="space-m__nav" type="button" aria-label="Меню">
+                    <span class="space-m__burger"><span></span><span></span><span></span></span>
+                </button>
+
+                <h1 class="space-m__title">Трансфер</h1>
+
+                <div class="space-m__desc">
+                    <p class="space-m__lead"><span class="space-m__coords">(124°11”)</span> <span class="space-m__dash">— это</span></p>
+                    <p class="space-m__body">
+                        <span class="space-m__u space-m__u--1">сеть пространств</span><br>
+                        <span class="space-m__u space-m__u--2">для отдыха</span><br>
+                        после долгого пути
+                    </p>
+                </div>
+
+                <a class="space-m__cta" href="#">смотреть облет пространства</a>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/js/grid.js"></script>
+    <script src="assets/js/nav.js"></script>
+    <script src="assets/js/space.js"></script>
+</body>
+</html>

@@ -1,0 +1,427 @@
+@font-face {
+    font-family: "ABC Whyte";
+    src: url("../fonts/abc-whyte.woff2") format("woff2");
+    font-weight: 100 1000;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Activist";
+    src: url("../fonts/activist.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "TT Tricks";
+    src: url("../fonts/tt-tricks.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: "ABC Whyte", system-ui, sans-serif;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+:root {
+    --color-bg: #ffffff;
+    --color-grid: #d2dadb;
+    --color-ink: #000000;
+    --color-ink-soft: #1a1a1a;
+    --color-accent: #22dff4;
+    --color-panel: #f4f5f6;
+    --color-surface: #edf0f1;
+
+    --grid-gap: 4px;
+
+    --scale: 1;
+
+    --hero-lift: 120px;
+
+    --ease-enter: cubic-bezier(0.22, 1, 0.32, 1.03);
+    --ease-panel: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-nav: cubic-bezier(0.65, 0, 0.35, 1);
+    --intro-duration: 1.5s;
+}
+
+.grid {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    display: flex;
+    gap: var(--grid-gap);
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.grid__col {
+    flex: 0 1 0;
+    background: var(--color-grid);
+}
+
+.top-bar__scale,
+.hero__scale {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.top-bar__scale > *,
+.hero__scale > * {
+    flex: 0 0 var(--stage-width, 1280px);
+    width: var(--stage-width, 1280px);
+}
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+
+    pointer-events: none;
+}
+
+.logo,
+.nav-pill {
+    pointer-events: auto;
+}
+
+.top-bar__motion {
+    position: relative;
+    height: 126px;
+}
+
+.logo {
+    position: absolute;
+    left: 24px;
+    top: 20px;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.top-bar__section {
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.logo__name {
+    display: block;
+    font-family: "Activist", sans-serif;
+    font-size: 16px;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+}
+
+.logo__est {
+    display: block;
+    margin-top: 1px;
+    margin-left: 51px;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.top-bar__section {
+    position: absolute;
+    right: 24px;
+    top: 20px;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.nav-pill {
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+.nav-pill::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 262px;
+    height: 62px;
+    z-index: -1;
+}
+
+.nav-pill:hover::after {
+    width: 501px;
+    height: 170px;
+}
+
+.nav-pill__trigger {
+    position: relative;
+    display: block;
+    width: 262px;
+    height: 62px;
+    border-radius: 2px;
+    border: 1.2px dashed var(--color-ink);
+    background: var(--color-panel);
+    cursor: pointer;
+
+    transition: width 0.4s var(--ease-nav), height 0.4s var(--ease-nav),
+                background 0.4s var(--ease-nav);
+    transition-delay: 0.3s;
+}
+
+.nav-pill:hover .nav-pill__trigger {
+    width: 501px;
+    height: 32px;
+    background: var(--color-accent);
+
+    transition-delay: 0s;
+}
+
+.nav-pill__dice {
+    position: absolute;
+    left: 12px;
+    top: 8px;
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border: 1.2px solid var(--color-ink);
+    border-radius: 50%;
+    background: var(--color-panel);
+}
+
+.nav-pill__dice img {
+    width: 28px;
+    height: 28px;
+}
+
+.nav-pill__label {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Activist", sans-serif;
+    font-size: 16px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.nav-pill__index {
+    position: absolute;
+    left: 232px;
+    top: 23px;
+    font-size: 14px;
+    font-weight: 350;
+    line-height: 1;
+}
+
+.nav-pill__dice,
+.nav-pill__label,
+.nav-pill__index {
+    transition: opacity 0.2s ease;
+    transition-delay: 0.28s;
+}
+
+.nav-pill:hover .nav-pill__dice,
+.nav-pill:hover .nav-pill__label,
+.nav-pill:hover .nav-pill__index {
+    opacity: 0;
+    pointer-events: none;
+    transition-delay: 0s;
+}
+
+.nav-pill__plate {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Activist", sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--color-ink);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    transition-delay: 0s;
+}
+
+.nav-pill:hover .nav-pill__plate {
+    opacity: 1;
+    transition-delay: 0.22s;
+}
+
+.nav-panel__body {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 262px;
+    display: flex;
+    max-height: 0;
+    overflow: hidden;
+    border: none;
+    transition: width 0.4s var(--ease-nav), max-height 0.32s var(--ease-nav);
+
+    transition-delay: 0.3s, 0s;
+}
+
+.nav-pill:hover .nav-panel__body {
+    width: 501px;
+    max-height: 130px;
+    border: 1.2px dashed var(--color-ink);
+    border-top: none;
+
+    transition-delay: 0s, 0.3s;
+}
+
+.nav-panel__dice {
+    flex: 0 0 155px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f0f0;
+    border-right: 1.2px dashed var(--color-ink);
+    transition: background 0.25s ease;
+}
+
+.nav-panel__dice:hover {
+    background: var(--color-accent);
+}
+
+.nav-panel__list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.nav-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 32px;
+    padding: 0 12px;
+    color: var(--color-ink);
+    text-decoration: none;
+    background: #f0f0f0;
+    border-bottom: 1.2px dashed var(--color-ink);
+    transition: background 0.2s ease;
+}
+
+.nav-panel__list li:last-child .nav-link {
+    border-bottom: none;
+}
+
+.nav-link:hover,
+.nav-link.is-current {
+    background: var(--color-accent);
+}
+
+.nav-link__index {
+    font-family: "ABC Whyte", sans-serif;
+    font-weight: 350;
+    font-size: 14px;
+}
+
+.nav-link__name {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Activist", sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.dice3d {
+    width: 58px;
+    height: 58px;
+
+}
+
+.dice3d__cube {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: rotateX(-35.264deg) rotateY(-45deg);
+    transition: transform 1.25s cubic-bezier(0.2, 0.85, 0.25, 1);
+    cursor: pointer;
+}
+
+.dice3d__face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 58px;
+    height: 58px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    padding: 8px;
+    gap: 3px;
+    background: var(--color-accent);
+    border: 1.4px solid var(--color-ink);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.dice3d__pip {
+    align-self: center;
+    justify-self: center;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-ink);
+}
+
+.dice3d__face--f { transform: translateZ(29px); }
+.dice3d__face--b { transform: rotateY(180deg) translateZ(29px); }
+.dice3d__face--r { transform: rotateY(90deg) translateZ(29px); }
+.dice3d__face--l { transform: rotateY(-90deg) translateZ(29px); }
+.dice3d__face--u { transform: rotateX(90deg) translateZ(29px); }
+.dice3d__face--d { transform: rotateX(-90deg) translateZ(29px); }
+
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --intro-duration: 0.01s;
+    }
+}

@@ -1,0 +1,213 @@
+.panels {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.panel {
+    position: absolute;
+    top: calc(20px * var(--scale));
+    width: calc(362px * var(--scale));
+    height: calc(100vh - 40px * var(--scale));
+    transition: transform 0.9s var(--ease-panel);
+}
+
+.panel--menu {
+    left: calc(24px * var(--scale));
+    transform: translateX(-118%);
+}
+
+.panel--ticket {
+    right: calc(24px * var(--scale));
+    transform: translateX(118%);
+}
+
+.panels.is-active .panel {
+    transform: translateX(0);
+}
+
+.panel__inner {
+    width: 362px;
+    height: calc(100vh / var(--scale) - 40px);
+    transform: scale(var(--scale));
+    transform-origin: top left;
+    background: var(--color-surface);
+    border: 1px solid var(--color-ink);
+}
+
+.accordion {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.menu-item {
+    flex: 0 0 32px;
+    overflow: hidden;
+    transition: flex-grow 0.45s var(--ease-panel);
+}
+
+.menu-item.is-open {
+    flex: 1 1 32px;
+}
+
+.menu-item:not(:last-child) {
+    background: repeating-linear-gradient(
+        90deg,
+        var(--color-ink) 0 2.4px,
+        transparent 2.4px 4.8px
+    ) bottom / 100% 1.2px no-repeat;
+}
+
+.menu-item__header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 32px;
+    padding: 0 16px;
+    font-family: "Activist", sans-serif;
+    font-size: 14px;
+    line-height: 1;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.menu-item__body {
+    padding: 4px 16px 16px;
+    opacity: 0;
+    transition: opacity 0.3s ease 0.1s;
+}
+
+.menu-item.is-open .menu-item__body {
+    opacity: 1;
+}
+
+.menu-item__text {
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 22px;
+    letter-spacing: -0.02em;
+}
+
+.panel--ticket .panel__inner {
+    position: relative;
+}
+
+.ticket__lead,
+.ticket__caption,
+.counter {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    text-align: center;
+}
+
+.ticket__lead {
+    top: 125px;
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 22px;
+    letter-spacing: -0.02em;
+    white-space: pre;
+}
+
+.ticket__caption {
+    font-family: "Activist", sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: uppercase;
+    white-space: pre;
+}
+
+.ticket__caption--count {
+    top: 260px;
+}
+
+.ticket__caption--price {
+    top: 396px;
+}
+
+.counter {
+    display: flex;
+    justify-content: center;
+}
+
+.counter--count {
+    top: 292px;
+}
+
+.counter--price {
+    top: 444px;
+}
+
+.counter__cell {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 52px;
+    background: #ffffff;
+    border: 1px solid var(--color-ink);
+}
+
+.counter__cell + .counter__cell {
+    margin-left: -1px;
+}
+
+.counter__cell--unit {
+    font-family: "Activist", sans-serif;
+    font-size: 12px;
+    line-height: 1;
+}
+
+.counter__cell--digit {
+    font-family: "TT Tricks", serif;
+    font-weight: 100;
+    font-size: 36px;
+    line-height: 1;
+}
+
+.ticket__deadline {
+    position: absolute;
+    bottom: 57px;
+    left: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    font-family: "Activist", sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+    text-transform: uppercase;
+
+    background:
+        repeating-linear-gradient(90deg, var(--color-ink) 0 2.4px, transparent 2.4px 4.8px) top / 100% 1.2px no-repeat,
+        var(--color-accent);
+}
+
+.ticket__book {
+    position: absolute;
+    bottom: 11px;
+    left: 12px;
+    right: 12px;
+    height: 46px;
+    font-family: "Activist", sans-serif;
+    font-size: 16px;
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--color-ink);
+    background: var(--color-accent);
+    border: 1px solid var(--color-ink);
+    transition: filter 0.2s ease;
+}
+
+.ticket__book:hover {
+    filter: brightness(0.94);
+}
+
+.is-panels .logo,
+.is-panels .top-bar__section {
+    opacity: 0;
+    visibility: hidden;
+}
